@@ -1,0 +1,35 @@
+/*In statistics the mode of a group of a number is the one that occurs the most often,.For example, given the  list
+1, 2, 3, 6, 4, 7, 5, 4, 6, 9, 4 the mode is 4, because it occurs three times. Write a program that allows the user
+to enter a list of 20 numbers and then finds and displays the mode.
+*/
+
+#include<stdio.h>
+int main(void)
+{
+    int arr[5], temp, result;
+    int currentCount = 0, previousCount = 0;
+    printf("Enter 5 numbers:\n");
+    for(int i = 0; i < 5; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    for(int i = 0; i < 5; i++)
+    {
+        currentCount = 0;
+        temp = arr[i];
+        for(int j = 0; j < 5; j++)
+        {
+            if(temp == arr[j])
+            {
+                currentCount ++;
+            }
+        }
+        if(currentCount > previousCount)
+        {
+            previousCount = currentCount;
+            result = temp;
+        }
+    }
+    printf("Mode: %d, frequency: %d", result, previousCount);
+}
